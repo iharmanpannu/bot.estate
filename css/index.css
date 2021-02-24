@@ -1,8 +1,11 @@
+@import "../css/normalize.css";
+
 :root {
-  --white: #fff;
+  color-scheme: light dark;
+  --white: white;
   --black: black;
   --light: #eee;
-  --dark: #333;
+  --dark: #2a293d;
 }
 
 * {
@@ -11,6 +14,7 @@
 
 html,
 body {
+  background: var(--white);
   font: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -18,47 +22,31 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.day {
-  background: var(--light);
-  color: var(--black);
-}
-.night {
-  background: var(--dark);
-  color: var(--white);
-}
-
-@media (prefers-color-scheme: light) {
-  .day.light-scheme {
-    background: var(--white);
-    color: #555;
-  }
-  .night.light-scheme {
-    background: var(--light);
-    color: var(--black);
-  }
-}
-
 @media (prefers-color-scheme: dark) {
-  .day.dark-scheme {
+  html,
+  body {
     background: var(--dark);
-    color: var(--white);
-  }
-  .night.dark-scheme {
-    background: var(--black);
-    color: #ddd;
   }
 }
 
 #main {
-  background-image: url(../img/image.light.webp);
   height: 100vh;
   width: 100vw;
-  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+#hero-img {
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/image.light.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
 }
 
 @media (prefers-color-scheme: dark) {
-  #main {
+  #hero-img {
     background-image: url(../img/image.dark.webp);
   }
 }
